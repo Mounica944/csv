@@ -1,0 +1,40 @@
+<div>
+  <h2>Tasks List</h2>
+  <div class="form">
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Task...</mat-label>
+      <input matInput type="text" [(ngModel)]="task" />
+      <button
+        *ngIf="task"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="task = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="createTask()">
+      Create Task
+    </button>
+    <div class="error" *ngIf="showError">Please enter the task.</div>
+  </div>
+</div>
+<div *ngIf="users">
+  <div class="cards">
+    <div *ngFor="let t of tasks" class="card">
+      <mat-card [ngClass]="{ done: t.completed }">
+        <mat-card-title (click)="view(t.id)">{{
+          t.description
+        }}</mat-card-title>
+        <mat-card-subtitle>{{ getUserName(t.assigneeId) }}</mat-card-subtitle>
+        <mat-card-actions *ngIf="!t.completed">
+          <button mat-raised-button (click)="openDialog(t.id)">Assign</button>
+          <button mat-raised-button (click)="taskCompleted(t.id)">
+            Complete
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

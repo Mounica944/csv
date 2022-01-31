@@ -1,0 +1,30 @@
+.status {
+  padding: 5px 8px;
+  font-size: 12px;
+  border-radius: 15px;
+  color: white;
+  border-style: solid;
+  &.not-completed {
+    background-color: #fba697;
+    border-color: tomato;
+  }
+  &.completed {
+    background-color: #a8dab5;
+    border-color: #46a35e;
+  }
+}
+
+.details {
+  width: 50%;
+  margin: 50px auto;
+}
+.details-container {
+  border: 1px solid grey;
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 220px;
+}
+.actions {
+  text-align: right;
+  margin: 10px;
+}

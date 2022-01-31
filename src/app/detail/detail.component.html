@@ -1,0 +1,21 @@
+<div class="details">
+  <div class="actions">
+    <button mat-button (click)="back()">Back to List</button>
+  </div>
+  <div class="details-container">
+    <h1>Task Details</h1>
+    <div *ngIf="user">
+      <h2>{{ task?.description }}</h2>
+      <h3>
+        Assiged to: <strong>{{ user?.name }}</strong>
+      </h3>
+      <h3>
+        Status :
+        <label *ngIf="task.completed" class="status completed">Completed</label>
+        <label class="status not-completed" *ngIf="!task.completed">
+          Not Completed</label
+        >
+      </h3>
+    </div>
+  </div>
+</div>
